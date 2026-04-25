@@ -2,6 +2,8 @@
 
 Native macOS clipboard history utility built with Swift, AppKit, SQLite, Keychain, Accessibility, and a CGEvent tap.
 
+🌐 **Website & Download**: [clip.saske.in](https://clip.saske.in)
+
 The app bundle uses the branded command-key style icon from `Resources/ClipSaske.icns`.
 
 ## Build
