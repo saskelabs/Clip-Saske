@@ -1,0 +1,9 @@
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/config/workspace-state.json
+.swiftpm/xcode/xcshareddata/WorkspaceSettings.xcsettings
+/dist

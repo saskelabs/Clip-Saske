@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!--
+        Hardened Runtime entitlements for Clip Saske.
+        Required by Apple notarization. Enable only the minimal set of
+        entitlements the app actually needs; every extra entitlement
+        expands the attack surface.
+    -->
+
+    <!-- ── Core runtime ── -->
+    <!-- Allow JIT-free Swift/ObjC execution under Hardened Runtime. -->
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <false/>
+    <key>com.apple.security.cs.disable-executable-page-protection</key>
+    <false/>
+    <!-- Disable dyld env variable injection to prevent DYLD_INSERT_LIBRARIES attacks. -->
+    <key>com.apple.security.cs.allow-dyld-environment-variables</key>
+    <false/>
+
+    <!-- ── Keychain ── -->
+    <!-- Not sandboxed, so we don't need access groups to store our own keys -->
+
+    <!-- ── Accessibility ── -->
+    <!-- Not sandboxed, so we have default access to these APIs once the user grants Accessibility permission in System Settings. -->
+
+    <!-- ── Network (outbound only) ── -->
+    <!-- Required to fetch the update appcast and (future) sync. -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+
+    <!-- ── App Sandbox ── -->
+    <!--
+        Sandboxing is NOT enabled here because CGEventTap (global hotkey)
+        and Accessibility paste require privileges that the App Sandbox
+        does not grant to menu-bar utilities distributed outside the
+        Mac App Store.
+
+        If you submit to the Mac App Store, you must enable the sandbox:
+            <key>com.apple.security.app-sandbox</key><true/>
+        and remove the CGEventTap / Accessibility entitlements above,
+        replacing them with com.apple.security.automation.apple-events.
+    -->
+</dict>
+</plist>

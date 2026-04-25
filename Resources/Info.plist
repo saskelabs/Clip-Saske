@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.clipsaske.app</string>
+    <key>CFBundleName</key>
+    <string>Clip Saske</string>
+    <key>CFBundleDisplayName</key>
+    <string>Clip Saske</string>
+    <key>CFBundleExecutable</key>
+    <string>ClipSaske</string>
+    <!-- Increment CFBundleVersion (integer) with every release for auto-update comparison. -->
+    <key>CFBundleVersion</key>
+    <string>2</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.1.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleIconFile</key>
+    <string>ClipSaske</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+
+    <!-- ── Usage Descriptions ── -->
+    <key>NSAccessibilityUsageDescription</key>
+    <string>Clip Saske needs Accessibility access to detect focused text fields and to paste clipboard items at the cursor.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>Clip Saske uses Apple Events to simulate paste actions.</string>
+    <!-- Required on macOS 10.15+ for CGEventTap (global hotkey). -->
+    <key>NSInputMonitoringUsageDescription</key>
+    <string>Clip Saske monitors keyboard input to detect the global clipboard hotkey (Option+Command+V by default).</string>
+
+    <!-- ── App Transport Security ── -->
+    <!-- Enforces HTTPS for all outbound connections (updates, license, patches). -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <!-- Block all plain-HTTP connections. -->
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <!-- Require TLS 1.2+ and forward secrecy for clip.saske.in. -->
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>clip.saske.in</key>
+            <dict>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.2</string>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <true/>
+                <key>NSRequiresCertificateTransparency</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>
+
